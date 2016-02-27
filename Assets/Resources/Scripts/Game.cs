@@ -12,7 +12,8 @@ public class Game : MonoBehaviour {
     public GameObject StartTilePrefab;
     public GameObject FinishTilePrefab;
 
-
+	[SerializeField]
+	public Prefab[] Prefabs;
 
 	[System.Serializable]
     public class Prefab
@@ -20,6 +21,8 @@ public class Game : MonoBehaviour {
 		public TileType TileType;
 		public GameObject PrefabObject;
     }
+
+	private Dictionary<TileType, GameObject> PreparedPrefabs = new Dictionary<TileType, GameObject> ();
     
     public GameObject MissionContainer;
 
@@ -41,6 +44,10 @@ public class Game : MonoBehaviour {
 
 		foreach(TileTypeMaterial ttm in TileTypeMaterials){
 			PreparedMaterials.Add(ttm.TileType, ttm.Material);
+		}
+	
+		foreach(Prefab prefab in Prefabs){
+			PreparedMaterials.Add(prefab.TileType, prefab.PrefabObject);
 		}
 
 		GameObject missionGO = CreateMissionObject(mission);
