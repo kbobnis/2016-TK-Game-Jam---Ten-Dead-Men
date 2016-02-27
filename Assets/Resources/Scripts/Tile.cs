@@ -6,13 +6,14 @@ using System.Text;
 [System.Serializable]
 public class Tile
 {
-    public TileType Type;
-    public Rotation Rotation;
+	public TileType Type;
+	public Rotation Rotation;
 
-    public Tile(TileType type, Rotation rotation = global::Rotation.Down) {
-	Type = type;
-	Rotation = rotation;
-    }
+	public Tile(TileType type, Rotation rotation = global::Rotation.Down)
+	{
+		Type = type;
+		Rotation = rotation;
+	}
 }
 
 public enum Rotation 
@@ -43,6 +44,7 @@ public static class TileTypeExtension
 			case 8: return new Tile(TileType.Spikes, Rotation.Down);
 			case 10: return new Tile(TileType.DeadMan);
 			case 9: //we don't need man tile
+				throw new Exception("You can not set man anywhere on the level: " + i);
 			default:
 				throw new Exception("Tile type not recognized from int: " + i);
 		}

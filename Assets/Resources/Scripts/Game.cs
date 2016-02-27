@@ -11,9 +11,7 @@ public class Game : MonoBehaviour {
 	public GameObject Prefabs;
 	public GameObject PlayerPrefab;
 	public GameObject MissionContainer;
-	[SerializeField]
 	public TileTypeMaterial[] TileTypeMaterials;
-	private Dictionary<TileType, Material> PreparedMaterials = new Dictionary<TileType, Material>();
 	private Dictionary<TileType, GameObject> PreparedPrefabs = new Dictionary<TileType, GameObject> ();
 	public static Game Me;
 
@@ -24,7 +22,6 @@ public class Game : MonoBehaviour {
 	[System.Serializable]
 	public class TileTypeMaterial {
 		public TileType TileType;
-		public Material Material;
 		public GameObject PrefabObject;
 	}
 
@@ -35,7 +32,6 @@ public class Game : MonoBehaviour {
 		Missions = LoadMissions();
 
 		foreach(TileTypeMaterial ttm in TileTypeMaterials){
-			PreparedMaterials.Add(ttm.TileType, ttm.Material);
 			PreparedPrefabs.Add(ttm.TileType, ttm.PrefabObject);
 		}
 
@@ -43,6 +39,12 @@ public class Game : MonoBehaviour {
 	}
 
 	public void ShowMission(int index) {
+		Debug.Log("Show mission numer: " + index);
+
+		if (index >= Missions.Count ) {
+			Application.LoadLevel("intro");
+			return;
+		}
 
 		//destroy all previous dirts
 		for (int i = 0; i < MissionContainer.transform.childCount; i++) {
@@ -52,8 +54,6 @@ public class Game : MonoBehaviour {
 		CreateMissionTilesIn(Missions[index], MissionContainer);
 		MissionContainer.GetComponent<MissionComponent>().SpawnPlayer(PlayerPrefab);
 	}
-
-
 	
 	private void CreateMissionTilesIn(Mission mission, GameObject missionContainer){
 
@@ -90,10 +90,6 @@ public class Game : MonoBehaviour {
 		tileGO.GetComponent<TileComponent>().Tile = tile;
 		tileGO.transform.parent = parent;
 		tileGO.transform.localPosition = new Vector3(x, y, 0);
-		if (!PreparedMaterials.ContainsKey(tile.Type)) {
-			throw new Exception("There is no material " + tile + " in prepared materials");
-		}
-		tileGO.GetComponent<MeshRenderer>().materials = new Material[1] { PreparedMaterials[tile.Type] };
 		switch (tile.Rotation) {
 			case Rotation.Up:
 				tileGO.transform.Rotate(0, 0, 0);

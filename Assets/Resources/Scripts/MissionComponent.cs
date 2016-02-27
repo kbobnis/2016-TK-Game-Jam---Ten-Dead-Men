@@ -16,7 +16,6 @@ public class MissionComponent : MonoBehaviour {
 	}
 
 	internal void SpawnPlayer(GameObject playerPrefab) {
-		Debug.Log("spawning player.");
 		GameObject playerGO = Instantiate(playerPrefab) as GameObject;
 		playerGO.SetActive(true);
 		playerGO.name = "player";

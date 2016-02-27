@@ -395,7 +395,9 @@ GameObject:
   - 114: {fileID: 705177699}
   - 111: {fileID: 705177698}
   - 95: {fileID: 705177697}
-  - 136: {fileID: 705177693}
+  - 114: {fileID: 705177700}
+  - 65: {fileID: 705177693}
+  - 136: {fileID: 705177701}
   m_Layer: 0
   m_Name: playerPrefab
   m_TagString: Player
@@ -427,8 +429,8 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!136 &705177693
-CapsuleCollider:
+--- !u!65 &705177693
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -436,10 +438,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: .5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: -9.53674316e-07, y: 8.94069672e-08, z: 0}
+  serializedVersion: 2
+  m_Size: {x: .49000001, y: .0599999987, z: 1}
+  m_Center: {x: 0, y: .460000008, z: 0}
 --- !u!33 &705177694
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -471,9 +472,9 @@ Rigidbody:
   m_AngularDrag: .5
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 120
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!95 &705177697
 Animator:
   serializedVersion: 3
@@ -521,10 +522,31 @@ MonoBehaviour:
   moveForce: 500
   maxSpeed: 8
   jumpClips: []
-  jumpForce: 600
-  taunts: []
-  tauntProbability: 0
-  tauntDelay: 0
+  jumpForce: 800
+--- !u!114 &705177700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 705177691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f40acf224852eb9499593d86ab163481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &705177701
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 705177691}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: .379999995
+  m_Height: .879999995
+  m_Direction: 1
+  m_Center: {x: -.00999999978, y: -.0399999991, z: 0}
 --- !u!1 &718909260
 GameObject:
   m_ObjectHideFlags: 0
@@ -628,22 +650,16 @@ MonoBehaviour:
   MissionContainer: {fileID: 643130775}
   TileTypeMaterials:
   - TileType: 6
-    Material: {fileID: 2100000, guid: 50ea9c41ce0d65f4692565d3dfad359e, type: 2}
     PrefabObject: {fileID: 1706504746}
   - TileType: 1
-    Material: {fileID: 2100000, guid: f9a6478863daed542933e4685c6bc727, type: 2}
     PrefabObject: {fileID: 2106451324}
   - TileType: 2
-    Material: {fileID: 2100000, guid: 5a893e360ed534b4a9feea7df2dc07b2, type: 2}
     PrefabObject: {fileID: 1597092218}
   - TileType: 3
-    Material: {fileID: 2100000, guid: 4d63db10385a3ef4d9089a60edaaadc4, type: 2}
     PrefabObject: {fileID: 146659849}
   - TileType: 4
-    Material: {fileID: 2100000, guid: 8e9a4a4d194563547b1b12acf3d1802c, type: 2}
     PrefabObject: {fileID: 906592415}
   - TileType: 5
-    Material: {fileID: 2100000, guid: 9a802bb68894e924898be61412491e42, type: 2}
     PrefabObject: {fileID: 1016402557}
   CurrentMissionIndex: 0
 --- !u!1 &775866993
@@ -991,8 +1007,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 2.13000011, z: 5.55272245}
-  m_Center: {x: 0, y: -.000115898103, z: 2.22372055}
+  m_Size: {x: 10, y: 2.13000011, z: 3.31999993}
+  m_Center: {x: 0, y: -.000115898103, z: 3.25999999}
 --- !u!54 &1597092222
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1018,7 +1034,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: f9a6478863daed542933e4685c6bc727, type: 2}
+  - {fileID: 2100000, guid: 5a893e360ed534b4a9feea7df2dc07b2, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1213,9 +1229,9 @@ GameObject:
   - 4: {fileID: 2106451328}
   - 33: {fileID: 2106451327}
   - 23: {fileID: 2106451325}
-  - 54: {fileID: 2106451329}
-  - 65: {fileID: 2106451330}
   - 114: {fileID: 2106451326}
+  - 65: {fileID: 2106451329}
+  - 54: {fileID: 2106451330}
   m_Layer: 0
   m_Name: tilePrefab
   m_TagString: Untagged
@@ -1280,7 +1296,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 432476368}
   m_RootOrder: 0
---- !u!54 &2106451329
+--- !u!65 &2106451329
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2106451324}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.22044565e-16, z: 9.99999809}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &2106451330
 Rigidbody:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -1294,16 +1322,4 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!65 &2106451330
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2106451324}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10, y: 2.13000011, z: 9.99999809}
-  m_Center: {x: 0, y: -8.04662704e-07, z: -1.66893005e-06}
+  m_CollisionDetection: 1
