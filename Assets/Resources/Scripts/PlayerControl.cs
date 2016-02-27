@@ -34,139 +34,138 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
-	if(grounded)
-	{
-	    gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
-	}
-	else
-	{
-	    gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
-	}
+		if(grounded)
+		{
+			gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
+		}
+		else
+		{
+			gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
+		}
 	
-	// If the jump button is pressed and the player is grounded then the player should jump.
-	if(Input.GetButtonDown("Jump") && grounded)
-	{
-	    Debug.Log("jump");
-	    jump = true;
-	}
+		// If the jump button is pressed and the player is grounded then the player should jump.
+		if(Input.GetButtonDown("Jump") && grounded)
+		{
+			jump = true;
+		}
     }
 
 
     void FixedUpdate ()
     {
-	// Cache the horizontal input.
-	float h = Input.GetAxis("Horizontal");
+		// Cache the horizontal input.
+		float h = Input.GetAxis("Horizontal");
 
-	// The Speed animator parameter is set to the absolute value of the horizontal input.
-	anim.SetFloat("Speed", Mathf.Abs(h));
+		// The Speed animator parameter is set to the absolute value of the horizontal input.
+		anim.SetFloat("Speed", Mathf.Abs(h));
 
-	// If the player is changing direction (h has a different sign to velocity.x) or hasn't reached maxSpeed yet...
-	if(h * GetComponent<Rigidbody>().velocity.x < maxSpeed)
-	    // ... add a force to the player.
-	    GetComponent<Rigidbody>().AddForce(Vector2.right * h * moveForce);
+		// If the player is changing direction (h has a different sign to velocity.x) or hasn't reached maxSpeed yet...
+		if(h * GetComponent<Rigidbody>().velocity.x < maxSpeed)
+			// ... add a force to the player.
+			GetComponent<Rigidbody>().AddForce(Vector2.right * h * moveForce);
 
-	// If the player's horizontal velocity is greater than the maxSpeed...
-	if(Mathf.Abs(GetComponent<Rigidbody>().velocity.x) > maxSpeed)
-	    // ... set the player's velocity to the maxSpeed in the x axis.
-	    GetComponent<Rigidbody>().velocity = new Vector2(Mathf.Sign(GetComponent<Rigidbody>().velocity.x) * maxSpeed, GetComponent<Rigidbody>().velocity.y);
+		// If the player's horizontal velocity is greater than the maxSpeed...
+		if(Mathf.Abs(GetComponent<Rigidbody>().velocity.x) > maxSpeed)
+			// ... set the player's velocity to the maxSpeed in the x axis.
+			GetComponent<Rigidbody>().velocity = new Vector2(Mathf.Sign(GetComponent<Rigidbody>().velocity.x) * maxSpeed, GetComponent<Rigidbody>().velocity.y);
 
-	// If the input is moving the player right and the player is facing left...
-	if(h > 0 && !facingRight)
-	    // ... flip the player.
-	    Flip();
-	// Otherwise if the input is moving the player left and the player is facing right...
-	else if(h < 0 && facingRight)
-	    // ... flip the player.
-	    Flip();
+		// If the input is moving the player right and the player is facing left...
+		if(h > 0 && !facingRight)
+			// ... flip the player.
+			Flip();
+		// Otherwise if the input is moving the player left and the player is facing right...
+		else if(h < 0 && facingRight)
+			// ... flip the player.
+			Flip();
 
-	// If the player should jump...
-	if(jump)
-	{
-	    // Set the Jump animator trigger parameter.
-	    anim.SetTrigger("Jump");
+		// If the player should jump...
+		if(jump)
+		{
+			// Set the Jump animator trigger parameter.
+			anim.SetTrigger("Jump");
 
-	    // Play a random jump audio clip.
-	    int i = Random.Range(0, jumpClips.Length);
-//	    AudioSource.PlayClipAtPoint(jumpClips[i], transform.position);
+			// Play a random jump audio clip.
+			int i = Random.Range(0, jumpClips.Length);
+			//AudioSource.PlayClipAtPoint(jumpClips[i], transform.position);
 
-	    // Add a vertical force to the player.
-	    GetComponent<Rigidbody>().AddForce(new Vector2(0f, jumpForce));
+			// Add a vertical force to the player.
+			GetComponent<Rigidbody>().AddForce(new Vector2(0f, jumpForce));
 
-	    // Make sure the player can't jump again until the jump conditions from Update are satisfied.
-	    jump = false;
-	}
+			// Make sure the player can't jump again until the jump conditions from Update are satisfied.
+			jump = false;
+		}
     }
 
     void OnCollisionEnter(Collision collision)
     {
-	if(collision.gameObject.transform.position.y < transform.position.y)
-	{
-	    if(collision.gameObject.transform.position.x < Mathf.Floor(transform.position.x + 1) &&
-		collision.gameObject.transform.position.x > Mathf.Floor(transform.position.x) )
-	    {
-		grounded = true;
-	    }
-	}
+		if(collision.gameObject.transform.position.y < transform.position.y)
+		{
+			if(collision.gameObject.transform.position.x < Mathf.Floor(transform.position.x + 1) &&
+			collision.gameObject.transform.position.x > Mathf.Floor(transform.position.x) )
+			{
+				grounded = true;
+			}
+		}
     }
     
     void OnCollisionExit(Collision collision)
     {
-	if(collision.gameObject.transform.position.y < transform.position.y)
-	{
-	    if(collision.gameObject.transform.position.x < Mathf.Floor(transform.position.x + 1) &&
-		collision.gameObject.transform.position.x > Mathf.Floor(transform.position.x) )
-	    {
-		grounded = false;
-	    }
-	}
+		if(collision.gameObject.transform.position.y < transform.position.y)
+		{
+			if(collision.gameObject.transform.position.x < Mathf.Floor(transform.position.x + 1) &&
+			collision.gameObject.transform.position.x > Mathf.Floor(transform.position.x) )
+			{
+				grounded = false;
+			}
+		}
     }
 	
     void Flip ()
     {
-	// Switch the way the player is labelled as facing.
-	facingRight = !facingRight;
+		// Switch the way the player is labelled as facing.
+		facingRight = !facingRight;
 
-	// Multiply the player's x local scale by -1.
-	Vector3 theScale = transform.localScale;
-	theScale.x *= -1;
-	transform.localScale = theScale;
+		// Multiply the player's x local scale by -1.
+		Vector3 theScale = transform.localScale;
+		theScale.x *= -1;
+		transform.localScale = theScale;
     }
 
 
     public IEnumerator Taunt()
     {
-	// Check the random chance of taunting.
-	float tauntChance = Random.Range(0f, 100f);
-	if(tauntChance > tauntProbability)
-	{
-	    // Wait for tauntDelay number of seconds.
-	    yield return new WaitForSeconds(tauntDelay);
+		// Check the random chance of taunting.
+		float tauntChance = Random.Range(0f, 100f);
+		if(tauntChance > tauntProbability)
+		{
+			// Wait for tauntDelay number of seconds.
+			yield return new WaitForSeconds(tauntDelay);
 
-	    // If there is no clip currently playing.
-	    if(!GetComponent<AudioSource>().isPlaying)
-	    {
-		// Choose a random, but different taunt.
-		tauntIndex = TauntRandom();
+			// If there is no clip currently playing.
+			if(!GetComponent<AudioSource>().isPlaying)
+			{
+			// Choose a random, but different taunt.
+			tauntIndex = TauntRandom();
 
-		// Play the new taunt.
-		GetComponent<AudioSource>().clip = taunts[tauntIndex];
-		GetComponent<AudioSource>().Play();
-	    }
-	}
+			// Play the new taunt.
+			GetComponent<AudioSource>().clip = taunts[tauntIndex];
+			GetComponent<AudioSource>().Play();
+			}
+		}
     }
 
 
     int TauntRandom()
     {
-	// Choose a random index of the taunts array.
-	int i = Random.Range(0, taunts.Length);
+		// Choose a random index of the taunts array.
+		int i = Random.Range(0, taunts.Length);
 
-	// If it's the same as the previous taunt...
-	if(i == tauntIndex)
-	    // ... try another random taunt.
-	    return TauntRandom();
-	else
-	    // Otherwise return this index.
-	    return i;
+		// If it's the same as the previous taunt...
+		if(i == tauntIndex)
+			// ... try another random taunt.
+			return TauntRandom();
+		else
+			// Otherwise return this index.
+			return i;
     }
 }

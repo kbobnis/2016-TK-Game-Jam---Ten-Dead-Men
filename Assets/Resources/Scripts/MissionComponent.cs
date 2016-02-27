@@ -5,7 +5,7 @@ public class MissionComponent : MonoBehaviour {
 
 	public Mission Mission;
 
-	// Use this for initialization
+	// Use this for initialization	
 	void Start () {
 	
 	}
@@ -16,6 +16,7 @@ public class MissionComponent : MonoBehaviour {
 	}
 
 	internal void SpawnPlayer(GameObject playerPrefab) {
+		Debug.Log("spawning player.");
 		GameObject playerGO = Instantiate(playerPrefab) as GameObject;
 		playerGO.SetActive(true);
 		playerGO.name = "player";
