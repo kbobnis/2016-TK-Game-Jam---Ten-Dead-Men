@@ -6,13 +6,22 @@ using System.Collections.Generic;
 using System;
 
 public class Game : MonoBehaviour {
-
-	public GameObject TilePrefab;
+    
+    public GameObject TilePrefab;
     public GameObject SpikeTilePrefab;
     public GameObject StartTilePrefab;
     public GameObject FinishTilePrefab;
+
+
+
+	[System.Serializable]
+    public class Prefab
+    {
+		public TileType TileType;
+		public GameObject PrefabObject;
+    }
     
-	public GameObject MissionContainer;
+    public GameObject MissionContainer;
 
     public Vector3 StartPoint;
 
