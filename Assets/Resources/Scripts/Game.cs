@@ -4,6 +4,7 @@ using SimpleJSON;
 using System.Linq;
 using System.Collections.Generic;
 using System;
+using System.Xml;
 
 public class Game : MonoBehaviour {
 
@@ -16,6 +17,10 @@ public class Game : MonoBehaviour {
 	private Dictionary<TileType, GameObject> PreparedPrefabs = new Dictionary<TileType, GameObject> ();
 	public static Game Me;
 
+
+	public int CurrentMissionIndex = 0;
+	private List<Mission> Missions;
+
 	[System.Serializable]
 	public class TileTypeMaterial {
 		public TileType TileType;
@@ -26,16 +31,29 @@ public class Game : MonoBehaviour {
 	void Start () {
 		Prefabs.SetActive(false);
 		Me = this;
-		Mission mission = XmlLoader.LoadMission(Resources.Load<TextAsset>("maps/tutorial1").text);
+
+		Missions = LoadMissions();
 
 		foreach(TileTypeMaterial ttm in TileTypeMaterials){
 			PreparedMaterials.Add(ttm.TileType, ttm.Material);
 			PreparedPrefabs.Add(ttm.TileType, ttm.PrefabObject);
 		}
 
-		CreateMissionTilesIn(mission, MissionContainer);
+		ShowMission(CurrentMissionIndex);
+	}
+
+	public void ShowMission(int index) {
+
+		//destroy all previous dirts
+		for (int i = 0; i < MissionContainer.transform.childCount; i++) {
+			Destroy(MissionContainer.transform.GetChild(i).gameObject);
+		}
+
+		CreateMissionTilesIn(Missions[index], MissionContainer);
 		MissionContainer.GetComponent<MissionComponent>().SpawnPlayer(PlayerPrefab);
 	}
+
+
 	
 	private void CreateMissionTilesIn(Mission mission, GameObject missionContainer){
 
@@ -47,6 +65,22 @@ public class Game : MonoBehaviour {
 			}
 			i++;
 		}
+	}
+
+	private List<Mission> LoadMissions() {
+		XmlDocument model = new XmlDocument();
+		model.LoadXml(Resources.Load<TextAsset>("model").text);
+
+		XmlNodeList missionsXml = model.GetElementsByTagName("mission");
+
+		List<Mission> missions = new List<Mission>();
+		int i = 0;
+		foreach (XmlNode missionXml in missionsXml) {
+			string path = missionXml.Attributes["path"].Value;
+			Debug.Log("loading mission " + path);
+			missions.Add(XmlLoader.LoadMission(Resources.Load<TextAsset>(path).text));
+		}
+		return missions;
 	}
 
 	public GameObject CreateTileAt(float x, float y, Tile tile, Transform parent) {

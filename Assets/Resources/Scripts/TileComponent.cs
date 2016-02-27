@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class TileComponent : MonoBehaviour {
 
@@ -18,13 +19,19 @@ public class TileComponent : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 
-		if (Tile.Type == TileType.Spikes && other.GetComponent<PlayerControl>()) {
+		if (!other.GetComponent<PlayerControl>()) {
+			throw new Exception(string.Format("{0} is colliding with {1} and shouldn't", gameObject.name, other.gameObject.name));
+		}
+
+		if (Tile.Type == TileType.Spikes ) {
 			//disable collider so it will not trigger twice
 			other.GetComponent<Collider>().enabled = false;
 			Game.Me.CreateTileAt(other.transform.localPosition.x, other.transform.localPosition.y, new Tile(TileType.DeadMan), Game.Me.MissionContainer.transform);
 			Destroy(other.gameObject);
 			Game.Me.MissionContainer.GetComponent<MissionComponent>().SpawnPlayer(Game.Me.PlayerPrefab);
-			
+		}
+		if (Tile.Type == TileType.Finish) {
+			Game.Me.ShowMission(++Game.Me.CurrentMissionIndex);
 		}
 
 	}
