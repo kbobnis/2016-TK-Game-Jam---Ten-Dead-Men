@@ -7,6 +7,8 @@ using System;
 
 public class Game : MonoBehaviour {
 
+	public GameObject PlayerPrefab;
+
 	[SerializeField]
 	public Prefab[] Prefabs;
 
@@ -42,7 +44,7 @@ public class Game : MonoBehaviour {
 		}
 	
 		foreach(Prefab prefab in Prefabs){
-			PreparedMaterials.Add(prefab.TileType, prefab.PrefabObject);
+			PreparedPrefabs.Add(prefab.TileType, prefab.PrefabObject);
 		}
 
 		CreateMissionTilesIn(mission, MissionContainer);
@@ -62,22 +64,8 @@ public class Game : MonoBehaviour {
 	}
 
 	private GameObject CreateTileAt(int x, int y, Tile tile, Transform parent) {
-	    GameObject tileGO;
-		switch (tile.Type) {
-			case (TileType.Start):
-				tileGO = Instantiate(StartTilePrefab) as GameObject;
-				StartPoint = tileGO.transform.position;
-				break;
-			case (TileType.Finish):
-				tileGO = Instantiate(FinishTilePrefab) as GameObject;
-				break;
-			case (TileType.Spikes):
-				tileGO = Instantiate(SpikeTilePrefab) as GameObject;
-				break;
-			default:
-				tileGO = Instantiate(TilePrefab) as GameObject;
-				break;
-		}
+		
+		GameObject tileGO = Instantiate (PreparedPrefabs [tile.Type]) as GameObject;
 	    
 		tileGO.name = "" + x + ", " + y + " " + tile.Type + (tile.Rotation != Rotation.Down?" " + tile.Rotation:"");
 		tileGO.GetComponent<TileComponent>().Tile = tile;
