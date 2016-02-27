@@ -8,7 +8,13 @@ using System;
 public class Game : MonoBehaviour {
 
 	public GameObject TilePrefab;
+    public GameObject SpikeTilePrefab;
+    public GameObject StartTilePrefab;
+    public GameObject FinishTilePrefab;
+    
 	public GameObject MissionContainer;
+
+    public Vector3 StartPoint;
 
 	[SerializeField]
 	public TileTypeMaterial[] TileTypeMaterials;
@@ -54,7 +60,28 @@ public class Game : MonoBehaviour {
 	}
 
 	private GameObject CreateTileAt(int x, int y, Tile tile, Transform parent) {
-		GameObject tileGO = Instantiate(TilePrefab) as GameObject;
+	    GameObject tileGO;
+	    switch(tile.Type)
+	    {
+	    case(TileType.Start):
+	    {
+		tileGO = Instantiate(StartTilePrefab) as GameObject;
+		StartPoint = tileGO.transform.position;
+	    } break;	    
+	    case(TileType.Finish):
+	    {
+		tileGO = Instantiate(FinishTilePrefab) as GameObject;
+	    } break;
+	    case(TileType.Spikes):
+	    {
+		tileGO = Instantiate(SpikeTilePrefab) as GameObject;
+	    } break;
+	    default:
+	    {
+		tileGO = Instantiate(TilePrefab) as GameObject;
+	    } break;
+	    }
+	    
 		tileGO.transform.parent = parent;
 		tileGO.transform.localPosition = new Vector3(-x, -y, 0);
 		if (!PreparedMaterials.ContainsKey(tile.Type)) {

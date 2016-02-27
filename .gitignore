@@ -24,3 +24,8 @@ platforms
 /Assembly-UnityScript-Editor-firstpass-vs.unityproj
 /Assembly-UnityScript-Editor-firstpass.unityproj
 /obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+
+# Emacs backups
+*\#*\#
+\#*\#
+\#*\#*
