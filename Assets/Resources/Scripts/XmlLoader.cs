@@ -15,15 +15,15 @@ public class XmlLoader {
 		int width = tilesLayerJson["width"].AsInt;
 		int height = tilesLayerJson["height"].AsInt;
 
-		List<List<TileType>> tiles = new List<List<TileType>>();
+		List<List<Tile>> tiles = new List<List<Tile>>();
 		int x = 0;
-		List<TileType> row = new List<TileType>();
+		List<Tile> row = new List<Tile>();
 		foreach (JSONNode tile in tilesLayerJson["data"].Childs) {
 			row.Add(TileTypeExtension.FromInt(tile.AsInt));
 			x++;
 			if (x >= width) {
 				tiles.Add(row);
-				row = new List<TileType>();
+				row = new List<Tile>();
 				x = 0;
 			}
 		}
@@ -31,22 +31,4 @@ public class XmlLoader {
 	}
 }
 
-public enum TileType {
-	Empty, Stone, HalfStone, Start, Finish, SpikesUp
-}
 
-public static class TileTypeExtension {
-
-	public static TileType FromInt(this int i){
-		switch (i) {
-			case 0: return TileType.Empty;
-			case 1: return TileType.Stone;
-			case 2: return TileType.SpikesUp;
-			case 3: return TileType.Start;
-			case 4: return TileType.Finish;
-			case 5: return TileType.HalfStone;
-			default:
-				throw new Exception("Tile type not recognized from int: " + i);
-		}
-	}
-}

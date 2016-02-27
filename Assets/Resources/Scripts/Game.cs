@@ -31,49 +31,20 @@ public class Game : MonoBehaviour {
 		GameObject missionGO = CreateMissionObject(mission);
 		missionGO.transform.parent = MissionContainer.transform;
 		missionGO.transform.localPosition = new Vector3();
-		GameObject outerTiles = CreateOuterTiles(mission);
-		outerTiles.transform.parent = MissionContainer.transform;
-		outerTiles.transform.localPosition = new Vector3();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-	private GameObject CreateOuterTiles(Mission mission) {
-		GameObject outerTiles = new GameObject();
-		outerTiles.name = mission.Name + " outer tiles";
-
-		int y = mission.Tiles.Count;
-		int x = mission.Tiles[0].Count;
-		for (int i = -1; i < x + 1; i++) {
-			GameObject go = CreateTileAt(i, -1, TileType.Stone);
-			go.transform.parent = outerTiles.transform;
-			GameObject go2 = CreateTileAt(i, y, TileType.Stone);
-			go2.transform.parent = outerTiles.transform;
-		}
-		for (int i = 0; i < y; i++) {
-			GameObject go = CreateTileAt(-1, i, TileType.Stone);
-			go.transform.parent = outerTiles.transform;
-			GameObject go2 = CreateTileAt(x, i, TileType.Stone);
-			go2.transform.parent = outerTiles.transform;
-		}
-		return outerTiles;
-	}
-
 	private GameObject CreateMissionObject(Mission mission){
 
 		GameObject missionGO = new GameObject();
 		missionGO.name = mission.Name;
 
 		int y = 0;
-		foreach (List<TileType> row in mission.Tiles) {
+		foreach (List<Tile> row in mission.Tiles) {
 			int x = 0;
-			foreach (TileType el in row) {
-				if (el != TileType.Empty) {
-					GameObject go = CreateTileAt(x, y, el);
-					go.transform.parent = missionGO.transform;
+			foreach (Tile el in row) {
+				if (el.Type != TileType.Empty) {
+					GameObject go = CreateTileAt(x, y, el, missionGO.transform);
+					
 				}
 				x++;
 			}
@@ -82,13 +53,25 @@ public class Game : MonoBehaviour {
 		return missionGO;
 	}
 
-	private GameObject CreateTileAt(int x, int y, TileType tileType) {
-		GameObject tile = Instantiate(TilePrefab) as GameObject;
-		tile.transform.localPosition = new Vector3(-x, -y, 0);
-		if (!PreparedMaterials.ContainsKey(tileType)) {
-			throw new Exception("There is no material " + tileType + " in prepared materials");
+	private GameObject CreateTileAt(int x, int y, Tile tile, Transform parent) {
+		GameObject tileGO = Instantiate(TilePrefab) as GameObject;
+		tileGO.transform.parent = parent;
+		tileGO.transform.localPosition = new Vector3(-x, -y, 0);
+		if (!PreparedMaterials.ContainsKey(tile.Type)) {
+			throw new Exception("There is no material " + tile + " in prepared materials");
 		}
-		tile.GetComponent<MeshRenderer>().materials = new Material[1] { PreparedMaterials[tileType] };
-		return tile;
+		tileGO.GetComponent<MeshRenderer>().materials = new Material[1] { PreparedMaterials[tile.Type] };
+		switch (tile.Rotation) {
+			case Rotation.Up:
+				tileGO.transform.Rotate(0, 180, 0);
+				break;
+			case Rotation.Left:
+				tileGO.transform.Rotate(0, 90, 0);
+				break;
+			case Rotation.Right:
+				tileGO.transform.Rotate(0, -90, 0);
+				break;
+		}
+		return tileGO;
 	}
 }
