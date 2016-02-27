@@ -6,9 +6,9 @@ using System.Text;
 public class Mission {
 
 	public readonly string Name;
-	public readonly List<List<TileType>> Tiles;
+	public readonly List<List<Tile>> Tiles;
 
-	public Mission(string name, List<List<TileType>> tiles) {
+	public Mission(string name, List<List<Tile>> tiles) {
 		Name = name;
 		Tiles = tiles;
 	}
