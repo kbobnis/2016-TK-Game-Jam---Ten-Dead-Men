@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class PlayerControl : MonoBehaviour
@@ -23,7 +23,7 @@ public class PlayerControl : MonoBehaviour
     private bool grounded = false;			// Whether or not the player is grounded.
     private Animator anim;					// Reference to the player's animator component.
 
-        private bool blockedRight, blockedLeft;
+    private bool blockedRight, blockedLeft;
     
     void Awake()
     {
@@ -119,6 +119,8 @@ public class PlayerControl : MonoBehaviour
 		grounded = false;
 	    }
 	}
+
+	
     }
 	
     void Flip ()
