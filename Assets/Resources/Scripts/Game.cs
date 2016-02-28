@@ -50,7 +50,7 @@ public class Game : MonoBehaviour {
 	void Update() {
 		if (!Restarting) {
 			if (Input.GetKeyDown (KeyCode.Backspace)) {
-				ShowMission (CurrentMissionIndex);
+				Restart ();
 			}
 			if (Spawning) {
 				SpawnerTimer += Time.deltaTime;
@@ -63,6 +63,9 @@ public class Game : MonoBehaviour {
 			RestartingTimer += Time.deltaTime;
 			if (RestartingTimer > RestartingCooldown) {
 				Message.SetActive (false);
+				Spawning = false;
+				Restarting = false;
+				ShowMission (CurrentMissionIndex);
 			}
 		}
 	}
