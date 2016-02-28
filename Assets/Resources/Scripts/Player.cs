@@ -1,16 +1,24 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Linq;
 
 public class Player : MonoBehaviour {
 
+	public float deathTimer = 10;
+	public bool counting = false; // Whether player is slowly dyin gor not
+
 	// Use this for initialization
 	void Start () {
-	
+		counting = true;
 	}
 	
 	void Update() {
-		if (Input.GetKeyDown(KeyCode.Return)) {
+		if (counting) {
+			deathTimer -= Time.deltaTime;
+			DisplayTime ();
+		}
+		if (Input.GetKeyDown(KeyCode.Return) || deathTimer <= 0) {
 			KillMe();
 		}
 	}
@@ -21,6 +29,9 @@ public class Player : MonoBehaviour {
 		Destroy(gameObject);
 	}
 
+	private void DisplayTime() {
+		
+	}
 
 	void OnTriggerEnter(Collider other) {
 
@@ -32,6 +43,7 @@ public class Player : MonoBehaviour {
 		}
 		if (otherTile.Type == TileType.Finish) {
 			GetComponents<Collider>().ToList().ForEach(t => t.enabled = false);
+			Game.Me.PrepareMission ();
 			Game.Me.ShowMission(++Game.Me.CurrentMissionIndex);
 		}
 

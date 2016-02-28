@@ -381,6 +381,7 @@ MonoBehaviour:
     Tiles: []
     Width: 0
     Height: 0
+  lives: 10
 --- !u!1 &705177691
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,6 +535,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f40acf224852eb9499593d86ab163481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathTimer: 10
+  counting: 0
 --- !u!136 &705177701
 CapsuleCollider:
   m_ObjectHideFlags: 0

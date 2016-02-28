@@ -5,6 +5,9 @@ public class MissionComponent : MonoBehaviour {
 
 	public Mission Mission;
 
+	[SerializeField]
+	private int lives = 10;
+
 	// Use this for initialization	
 	void Start () {
 	
@@ -16,6 +19,12 @@ public class MissionComponent : MonoBehaviour {
 	}
 
 	internal void SpawnPlayer(GameObject playerPrefab) {
+		lives--;
+		DisplayLives ();
+		if (lives < 0) {
+			Game.Me.Fail ();
+			return;
+		}
 		GameObject playerGO = Instantiate(playerPrefab) as GameObject;
 		playerGO.SetActive(true);
 		playerGO.name = "player";
@@ -30,5 +39,13 @@ public class MissionComponent : MonoBehaviour {
 		}
 		Vector3 pos = startTile.transform.localPosition;
 		playerGO.transform.localPosition = new Vector3(pos.x, pos.y, -0.25f);
+	}
+		
+	public void Reset() {
+		lives = 10;
+	}
+
+	private void DisplayLives() {
+		
 	}
 }

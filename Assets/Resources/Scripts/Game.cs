@@ -38,6 +38,12 @@ public class Game : MonoBehaviour {
 		ShowMission(CurrentMissionIndex);
 	}
 
+	public void Fail()
+	{
+		PrepareMission ();
+		ShowMission (CurrentMissionIndex);
+	}
+
 	public void ShowMission(int index) {
 		Debug.Log("Show mission numer: " + index);
 
@@ -53,6 +59,11 @@ public class Game : MonoBehaviour {
 
 		CreateMissionTilesIn(Missions[index], MissionContainer);
 		MissionContainer.GetComponent<MissionComponent>().SpawnPlayer(PlayerPrefab);
+	}
+
+	public void PrepareMission()
+	{
+		MissionContainer.GetComponent<MissionComponent> ().Reset ();
 	}
 	
 	private void CreateMissionTilesIn(Mission mission, GameObject missionContainer){
