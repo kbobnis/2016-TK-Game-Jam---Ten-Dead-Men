@@ -23,7 +23,7 @@ public enum Rotation
 
 public enum TileType
 {
-    Empty, Stone, HalfStone, Start, Finish, Spikes, DeadMan
+    Empty, Stone, HalfStone, Start, Finish, Spikes, DeadMan, SpikesL, FinishAlt
 }
 
 public static class TileTypeExtension
@@ -43,6 +43,12 @@ public static class TileTypeExtension
 			case 7: return new Tile(TileType.Spikes, Rotation.Left);
 			case 8: return new Tile(TileType.Spikes, Rotation.Down);
 			case 10: return new Tile(TileType.DeadMan, Rotation.Up);
+			case 11: return new Tile (TileType.SpikesL, Rotation.Up);
+			case 12: return new Tile(TileType.SpikesL, Rotation.Right);
+			case 13: return new Tile(TileType.SpikesL, Rotation.Left);
+			case 14: return new Tile (TileType.SpikesL, Rotation.Down);
+			case 15: return new Tile (TileType.FinishAlt, Rotation.Up);
+			
 			case 9: //we don't need man tile
 				throw new Exception("You can not set man anywhere on the level: " + i);
 			default:

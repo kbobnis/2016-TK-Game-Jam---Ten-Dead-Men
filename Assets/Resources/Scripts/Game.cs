@@ -111,7 +111,7 @@ public class Game : MonoBehaviour {
 				if (el.Type == TileType.Start) {
 					StartPos = go.transform.localPosition;
 				}
-				if (el.Type == TileType.Finish /* || el.Type == TileType.FinishAlt */) {
+				if (el.Type == TileType.Finish || el.Type == TileType.FinishAlt) {
 					FinishPos = go.transform.localPosition;
 				}
 			}

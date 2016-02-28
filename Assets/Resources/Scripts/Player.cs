@@ -33,7 +33,7 @@ public class Player : MonoBehaviour {
 			GetComponent<Collider2D>().enabled = false;
 			KillMe();
 		}
-		if (otherTile.Type == TileType.Finish) {
+		if (otherTile.Type == TileType.Finish || otherTile.Type == TileType.FinishAlt) {
 			GetComponent<Collider2D>().enabled = false;
 			Game.Me.ShowNextMission();
 		}
