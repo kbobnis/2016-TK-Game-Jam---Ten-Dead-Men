@@ -44,6 +44,7 @@ public class Player : MonoBehaviour {
 		}
 		if (otherTile.Type == TileType.Finish || otherTile.Type == TileType.FinishAlt) {
 			GetComponent<Collider2D>().enabled = false;
+			PlaySingleSound.SpawnSound(Resources.Load<AudioClip>("sounds/you_are_a_dead_man"), 0, 0.4f);
 			Game.Me.ShowNextMission();
 		}
 		if (otherTile.Type == TileType.Start) {
