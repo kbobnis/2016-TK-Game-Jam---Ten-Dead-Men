@@ -1,13 +1,20 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/Scripts/PanelLives.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/Scripts/PlayerManager.cs">
     <Files>
       <File FileName="Assets/Resources/Scripts/Game.cs" Line="84" Column="58" />
       <File FileName="Assets/Resources/Scripts/Player.cs" Line="19" Column="24" />
-      <File FileName="Assets/Resources/Scripts/PanelLives.cs" Line="30" Column="49" />
+      <File FileName="Assets/Resources/Scripts/PanelLives.cs" Line="1" Column="1" />
       <File FileName="Assets/Resources/Scripts/Tile.cs" Line="1" Column="1" />
       <File FileName="Assets/Resources/Scripts/Mission.cs" Line="1" Column="1" />
-      <File FileName="Assets/Resources/Scripts/PlayerManager.cs" Line="18" Column="1" />
+      <File FileName="Assets/Resources/Scripts/PlayerManager.cs" Line="22" Column="7" />
+      <File FileName="Assets/PC2D/Scripts/PlatformerMotor2D.cs" Line="443" Column="27" />
+      <File FileName="Assets/PC2D/Scripts/PlatformerAnimation2D.cs" Line="15" Column="26" />
+      <File FileName="Assets/Resources/Scripts/TimerDisplay.cs" Line="9" Column="12" />
+      <File FileName="Assets/PC2D/Scripts/MovingPlatformMotor2D.cs" Line="17" Column="30" />
+      <File FileName="Assets/PC2D/Scripts/Globals.cs" Line="1" Column="1" />
+      <File FileName="Assets/PC2D/Scripts/EasingFunctions.cs" Line="1" Column="1" />
+      <File FileName="Assets/PC2D/Scripts/PlayerController2D.cs" Line="1" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -12,6 +12,7 @@ namespace PC2D
     {
         public float jumpRotationSpeed;
         public GameObject visualChild;
+		public GameObject body;
 
         private PlatformerMotor2D _motor;
         private Animator _animator;
@@ -37,6 +38,7 @@ namespace PC2D
                                  _motor.motorState == PlatformerMotor2D.MotorState.FallingFast))
             {
                 _isJumping = true;
+				Debug.Log ("Setting state to Jump");
                 _animator.Play("Jump");
 
                 if (_motor.velocity.x <= -0.1f)
@@ -103,9 +105,9 @@ namespace PC2D
             
             if (Mathf.Abs(valueCheck) >= 0.1f)
             {
-                Vector3 newScale = visualChild.transform.localScale;
+                Vector3 newScale = body.transform.localScale;
                 newScale.x = Mathf.Abs(newScale.x) * ((valueCheck > 0) ? 1.0f : -1.0f);
-                visualChild.transform.localScale = newScale;
+                body.transform.localScale = newScale;
             }
         }
 

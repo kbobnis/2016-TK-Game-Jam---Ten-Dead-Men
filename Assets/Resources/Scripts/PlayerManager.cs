@@ -10,6 +10,8 @@ public class PlayerManager : MonoBehaviour {
 
 	public static PlayerManager Me;
 
+	public bool Stop = false;
+
 	void Start() {
 		Me = this;
 		PlayerLifeTime = LifeTime;
@@ -17,7 +19,8 @@ public class PlayerManager : MonoBehaviour {
 	}
 
 	void Update() {
-		PlayerLifeTime -= Time.deltaTime;
+		if(!Stop)
+			PlayerLifeTime -= Time.deltaTime;
 		TimerDisplay.Me.Refresh (PlayerLifeTime);
 		if (PlayerLifeTime <= 0) {
 			Kill();
