@@ -56,16 +56,39 @@ namespace PC2D
                 _isJumping = false;
                 visualChild.transform.rotation = Quaternion.identity;
 
-            
-                if (_motor.velocity.sqrMagnitude >= 0.1f * 0.1f)
+                if (_motor.motorState == PlatformerMotor2D.MotorState.Falling ||
+                                 _motor.motorState == PlatformerMotor2D.MotorState.FallingFast)
                 {
-                    _animator.Play("Walk");
+                    _animator.Play("Fall");
+                }
+                else if (_motor.motorState == PlatformerMotor2D.MotorState.WallSliding ||
+                         _motor.motorState == PlatformerMotor2D.MotorState.WallSticking)
+                {
+                    _animator.Play("Cling");
+                }
+                else if (_motor.motorState == PlatformerMotor2D.MotorState.OnCorner)
+                {
+                    _animator.Play("On Corner");
+                }
+                else if (_motor.motorState == PlatformerMotor2D.MotorState.Slipping)
+                {
+                    _animator.Play("Slip");
+                }
+                else if (_motor.motorState == PlatformerMotor2D.MotorState.Dashing)
+                {
+                    _animator.Play("Dash");
                 }
                 else
                 {
-                    _animator.Play("Idle");
+                    if (_motor.velocity.sqrMagnitude >= 0.1f * 0.1f)
+                    {
+                        _animator.Play("Walk");
+                    }
+                    else
+                    {
+                        _animator.Play("Idle");
+                    }
                 }
-            
             }
 
             // Facing

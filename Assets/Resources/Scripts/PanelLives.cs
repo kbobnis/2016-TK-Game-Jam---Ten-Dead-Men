@@ -7,7 +7,7 @@ public class PanelLives : MonoBehaviour {
 	public GameObject FacePrefab;
 
 	void Start() {
-		
+
 	}
 
 	internal void ReduceLive() {
