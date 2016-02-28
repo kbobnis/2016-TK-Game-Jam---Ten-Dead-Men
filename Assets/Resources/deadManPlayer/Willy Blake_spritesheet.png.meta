@@ -1,0 +1,221 @@
+fileFormatVersion: 2
+guid: 8c5100fbbcc632042a25375a37959c6e
+timeCreated: 1456614097
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Willy Blake_spritesheet_1
+    21300002: Willy Blake_spritesheet_2
+    21300004: Willy Blake_spritesheet_3
+    21300006: Willy Blake_spritesheet_4
+    21300008: Willy Blake_spritesheet_6
+    21300010: Willy Blake_spritesheet_7
+    21300012: Willy Blake_spritesheet_8
+    21300014: Willy Blake_spritesheet_9
+    21300016: Willy Blake_spritesheet_10
+    21300018: Willy Blake_spritesheet_11
+    21300020: Willy Blake_spritesheet_12
+    21300022: Willy Blake_spritesheet_13
+    21300024: Willy Blake_spritesheet_14
+    21300026: Willy Blake_spritesheet_15
+    21300028: Willy Blake_spritesheet_16
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Willy Blake_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 184
+        width: 59
+        height: 65
+      alignment: 9
+      pivot: {x: .734358966, y: .781101644}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Willy Blake_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 227
+        width: 23
+        height: 17
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Willy Blake_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 188
+        width: 36
+        height: 54
+      alignment: 9
+      pivot: {x: .280520976, y: .774348199}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Willy Blake_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 160
+        width: 108
+        height: 64
+      alignment: 9
+      pivot: {x: .50000006, y: .137345552}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Willy Blake_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 126
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Willy Blake_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 127
+        width: 11
+        height: 18
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Willy Blake_spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 114
+        width: 36
+        height: 59
+      alignment: 9
+      pivot: {x: .623456299, y: .675769091}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Willy Blake_spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 117
+        width: 32
+        height: 55
+      alignment: 9
+      pivot: {x: .638888836, y: .625701368}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Willy Blake_spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 91
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Willy Blake_spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 92
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Willy Blake_spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 88
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Willy Blake_spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 87
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Willy Blake_spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 4
+        width: 78
+        height: 84
+      alignment: 9
+      pivot: {x: .664609194, y: .0943564028}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Willy Blake_spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 7
+        width: 80
+        height: 77
+      alignment: 9
+      pivot: {x: .759259224, y: .487173259}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Willy Blake_spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 6
+        width: 65
+        height: 73
+      alignment: 9
+      pivot: {x: .530389428, y: .242939234}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
