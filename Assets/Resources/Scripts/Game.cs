@@ -34,7 +34,6 @@ public class Game : MonoBehaviour {
 
 	public void Fail()
 	{
-		PrepareMission ();
 		ShowMission (CurrentMissionIndex);
 	}
 
@@ -59,11 +58,6 @@ public class Game : MonoBehaviour {
 		//PanelLives.RestoreLives();
 	}
 
-	public void PrepareMission()
-	{
-		MissionContainer.GetComponent<MissionComponent> ().Reset ();
-	}
-	
 	private void CreateMissionTilesIn(Mission mission){
 
 		MissionContainer.name = mission.Name;
