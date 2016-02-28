@@ -37,7 +37,7 @@ public class PanelLives : MonoBehaviour {
 				}
 			}
 			Camera.main.gameObject.GetComponent<CameraShake>().Shake();
-			PlaySingleSound.SpawnSound(Resources.Load<AudioClip>("sounds/bongo"));
+			PlaySingleSound.SpawnSound(Resources.Load<AudioClip>("sounds/dead_dead"));
 		}
 	}
 

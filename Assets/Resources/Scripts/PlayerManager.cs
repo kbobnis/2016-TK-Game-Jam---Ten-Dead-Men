@@ -28,7 +28,9 @@ public class PlayerManager : MonoBehaviour {
 	void Update() {
 		if(!Stop)
 			PlayerLifeTime -= Time.deltaTime;
-		TimerDisplay.Me.Refresh (PlayerLifeTime);
+		if (TimerDisplay.Me != null) {
+			TimerDisplay.Me.Refresh(PlayerLifeTime);
+		}
 		if (PlayerLifeTime <= 0) {
 			Kill();
 		}

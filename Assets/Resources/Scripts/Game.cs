@@ -8,7 +8,8 @@ using System.Xml;
 
 public class Game : MonoBehaviour {
 
-	public GameObject PlayerPrefab;
+	public GameObject PlayerPrefabActual;
+	private GameObject PlayerPrefab;
 	public GameObject MissionContainer;
 	public TileTypeMaterial[] TileTypeMaterials;
 	public static Game Me;
@@ -39,6 +40,7 @@ public class Game : MonoBehaviour {
 
 	void Awake() {
 		Me = this;
+		PlayerPrefab = Instantiate(PlayerPrefabActual) as GameObject;
 	}
 
 	void Start () {
@@ -98,13 +100,14 @@ public class Game : MonoBehaviour {
 		CreateMissionTilesIn(Missions[index]);
 		
 		PanelLives.RestoreLives();
-		PlayerManager.Me.RestartTimer();
+		if (PlayerManager.Me != null) {
+			PlayerManager.Me.RestartTimer();
+		}
 	}
 
 	private void CreateMissionTilesIn(Mission mission){
 
 		MissionContainer.name = mission.Name;
-		Vector2 startPos = new Vector2();
 		int i = 0;
 		foreach (Tile el in mission.Tiles) {
 			if (el.Type != TileType.Empty) {
@@ -124,6 +127,7 @@ public class Game : MonoBehaviour {
 	public void SpawnPlayer() {
 		SpawnerTimer = 0;
 		Spawning = true;
+
 		PlayerPrefab.SetActive (false);
 	}
 
