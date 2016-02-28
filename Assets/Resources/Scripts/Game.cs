@@ -153,6 +153,7 @@ public class Game : MonoBehaviour {
 	}
 
 	internal void NoMoreLives() {
+		//Restarting = true;
 		LoadSceneText = "No more lives, try again.";
 		Application.LoadLevel("intro");
 	}
