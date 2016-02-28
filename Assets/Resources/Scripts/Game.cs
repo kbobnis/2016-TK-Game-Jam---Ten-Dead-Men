@@ -8,16 +8,16 @@ using System.Xml;
 
 public class Game : MonoBehaviour {
 
-	public GameObject Prefabs;
 	public GameObject PlayerPrefab;
 	public GameObject MissionContainer;
 	public TileTypeMaterial[] TileTypeMaterials;
-	private Dictionary<TileType, GameObject> PreparedPrefabs = new Dictionary<TileType, GameObject> ();
 	public static Game Me;
+	public PanelLives PanelLives;
 
-
-	public int CurrentMissionIndex = 0;
+	private int CurrentMissionIndex = 0;
 	private List<Mission> Missions;
+	public static string LoadSceneText = "";
+	private Vector2 StartPos;
 
 	[System.Serializable]
 	public class TileTypeMaterial {
@@ -26,45 +26,57 @@ public class Game : MonoBehaviour {
 	}
 
 	void Start () {
-		Prefabs.SetActive(false);
 		Me = this;
-
 		Missions = LoadMissions();
-
-		foreach(TileTypeMaterial ttm in TileTypeMaterials){
-			PreparedPrefabs.Add(ttm.TileType, ttm.PrefabObject);
-		}
 
 		ShowMission(CurrentMissionIndex);
 	}
 
 	public void ShowMission(int index) {
-		Debug.Log("Show mission numer: " + index);
 
 		if (index >= Missions.Count ) {
+			LoadSceneText = "Game Finished, congratulations!";
 			Application.LoadLevel("intro");
-			return;
 		}
 
 		//destroy all previous dirts
 		for (int i = 0; i < MissionContainer.transform.childCount; i++) {
-			Destroy(MissionContainer.transform.GetChild(i).gameObject);
+			GameObject go = MissionContainer.transform.GetChild(i).gameObject;
+			if (go.GetComponent<Player>() == null) {
+				Destroy(go);
+			}
 		}
 
-		CreateMissionTilesIn(Missions[index], MissionContainer);
-		MissionContainer.GetComponent<MissionComponent>().SpawnPlayer(PlayerPrefab);
+		MissionContainer.GetComponent<MissionComponent>().Mission = Missions[index];
+		CreateMissionTilesIn(Missions[index]);
+		
+		//PanelLives.RestoreLives();
 	}
 	
-	private void CreateMissionTilesIn(Mission mission, GameObject missionContainer){
+	private void CreateMissionTilesIn(Mission mission){
 
-		missionContainer.name = mission.Name;
+		MissionContainer.name = mission.Name;
+		Vector2 startPos = new Vector2();
 		int i = 0;
 		foreach (Tile el in mission.Tiles) {
 			if (el.Type != TileType.Empty) {
-				GameObject go = CreateTileAt(i % mission.Width, -i / mission.Width, el, missionContainer.transform);
+				GameObject go = CreateTileAt(i % mission.Width, -i / mission.Width, el, MissionContainer.transform);
+				if (el.Type == TileType.Start) {
+					StartPos = go.transform.localPosition;
+				}
 			}
 			i++;
 		}
+		SpawnPlayer();
+	}
+
+	public void SpawnPlayer() {
+
+		PlayerPrefab.SetActive(true);
+		PlayerPrefab.name = "player";
+		PlayerPrefab.transform.parent = MissionContainer.transform;
+		PlayerPrefab.GetComponent<Collider2D>().enabled = true;
+		PlayerPrefab.transform.localPosition = new Vector3(StartPos.x, StartPos.y, 0);
 	}
 
 	private List<Mission> LoadMissions() {
@@ -84,26 +96,35 @@ public class Game : MonoBehaviour {
 	}
 
 	public GameObject CreateTileAt(float x, float y, Tile tile, Transform parent) {
-		
-		GameObject tileGO = Instantiate (PreparedPrefabs [tile.Type]) as GameObject;
-		tileGO.name = "" + x + ", " + y + " " + tile.Type + (tile.Rotation != Rotation.Down?" " + tile.Rotation:"");
-		tileGO.GetComponent<TileComponent>().Tile = tile;
-		tileGO.transform.parent = parent;
-		tileGO.transform.localPosition = new Vector3(x, y, 0);
-		switch (tile.Rotation) {
-			case Rotation.Up:
-				tileGO.transform.Rotate(0, 0, 0);
-				break;
-			case Rotation.Left:
-				tileGO.transform.Rotate(0, 90, 0);
-				break;
-			case Rotation.Right:
-				tileGO.transform.Rotate(0, -90, 0);
-				break;
-			case Rotation.Down:
-				tileGO.transform.Rotate(0, 180, 0);
-				break;
-		}
-		return tileGO;
+
+			GameObject tileGO = Instantiate(TileTypeMaterials.First( t=> t.TileType == tile.Type ).PrefabObject) as GameObject;
+			tileGO.name = "" + x + ", " + y + " " + tile.Type + (tile.Rotation != Rotation.Down ? " " + tile.Rotation : "");
+			tileGO.AddComponent<TileComponent>().Tile = tile;
+			tileGO.transform.parent = parent;
+			tileGO.transform.localPosition = new Vector3(x, y, 0);
+			switch (tile.Rotation) {
+				case Rotation.Up:
+					tileGO.transform.Rotate(0, 0, 0);
+					break;
+				case Rotation.Left:
+					tileGO.transform.Rotate(0, 90, 0);
+					break;
+				case Rotation.Right:
+					tileGO.transform.Rotate(0, -90, 0);
+					break;
+				case Rotation.Down:
+					tileGO.transform.Rotate(0, 180, 0);
+					break;
+			}
+			return tileGO;
+	}
+
+	internal void NoMoreLives() {
+		LoadSceneText = "No more lives, try again.";
+		Application.LoadLevel("intro");
+	}
+
+	internal void ShowNextMission() {
+		ShowMission(++CurrentMissionIndex);
 	}
 }

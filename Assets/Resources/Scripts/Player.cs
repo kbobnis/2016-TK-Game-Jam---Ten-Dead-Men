@@ -4,36 +4,41 @@ using System.Linq;
 
 public class Player : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
+	private bool InsideStart = false;
+
 	void Update() {
-		if (Input.GetKeyDown(KeyCode.Return)) {
-			KillMe();
+		if (Input.GetKeyDown(KeyCode.Return) ) {
+			if (InsideStart) {
+				Debug.Log("you can not do this inside start");
+			} else {
+				KillMe();
+			}
 		}
 	}
 
 	public void KillMe() {
+		//Game.Me.PanelLives.ReduceLive();
 		Game.Me.CreateTileAt(transform.localPosition.x, transform.localPosition.y, new Tile(TileType.DeadMan), Game.Me.MissionContainer.transform);
-		Game.Me.MissionContainer.GetComponent<MissionComponent>().SpawnPlayer(Game.Me.PlayerPrefab);
-		Destroy(gameObject);
+		Game.Me.SpawnPlayer();
 	}
 
+	void OnTriggerEnter2D(Collider2D other) {
 
-	void OnTriggerEnter(Collider other) {
+		Debug.Log(string.Format("{0} triggered with {1} ", gameObject.name, other.gameObject.name));
 
 		Tile otherTile = other.GetComponent<TileComponent>().Tile;
 		if (otherTile.Type == TileType.Spikes) {
 			//disable collider so it will not trigger twice
-			GetComponents<Collider>().ToList().ForEach(t => t.enabled = false);
+			GetComponent<Collider2D>().enabled = false;
 			KillMe();
 		}
 		if (otherTile.Type == TileType.Finish) {
-			GetComponents<Collider>().ToList().ForEach(t => t.enabled = false);
-			Game.Me.ShowMission(++Game.Me.CurrentMissionIndex);
+			GetComponent<Collider2D>().enabled = false;
+			Game.Me.ShowNextMission();
 		}
-
+		if (otherTile.Type == TileType.Start) {
+			InsideStart = true;
+		}
 	}
+
 }
