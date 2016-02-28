@@ -187,6 +187,7 @@ public class Game : MonoBehaviour {
 	}
 
 	internal void Restart() {
+		PlaySingleSound.SpawnSound(Resources.Load<AudioClip>("sounds/nobody"));
 		Restarting = true;
 		RestartingTimer = 0;
 		Message.SetActive (true);

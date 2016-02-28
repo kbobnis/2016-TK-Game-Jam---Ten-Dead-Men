@@ -30,13 +30,14 @@ public class PanelLives : MonoBehaviour {
 			//making loud one more
 			foreach(AudioSource aso in AudioSources){
 				if (aso.volume == 0) {
-					gameObject.AddComponent<Changer>().Change(0, 1, 0.5f, (float final) => {
+					gameObject.AddComponent<Changer>().Change(0, 0.5f, 0.5f, (float final) => {
 						aso.volume = final;
 					});
 					break;
 				}
 			}
 			Camera.main.gameObject.GetComponent<CameraShake>().Shake();
+			PlaySingleSound.SpawnSound(Resources.Load<AudioClip>("sounds/bongo"));
 		}
 	}
 
@@ -47,7 +48,8 @@ public class PanelLives : MonoBehaviour {
 		foreach (AudioSource aso in AudioSources) {
 			aso.volume = 0;
 		}
-		AudioSources[0].volume = 1;
+		AudioSources[0].volume = 0.5f;
+		
 
 		for (int i = 0; i < Lives; i++) {
 			GameObject face = Instantiate(FacePrefab) as GameObject;
