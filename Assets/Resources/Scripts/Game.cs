@@ -40,7 +40,7 @@ public class Game : MonoBehaviour {
 	}
 
 	void Update() {
-		if (Input.GetAxisRaw ("Restart") != 0) {
+		if (Input.GetKeyDown(KeyCode.Backspace)) {
 			ShowMission (CurrentMissionIndex);
 		}
 		if (Spawning) {

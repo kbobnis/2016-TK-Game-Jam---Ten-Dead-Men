@@ -7,7 +7,7 @@ public class Player : MonoBehaviour {
 	private bool InsideStart = false;
 
 	void Update() {
-		if (Input.GetAxisRaw("Submit") != 0) {
+		if (Input.GetKeyDown(KeyCode.P)) {
 			if (InsideStart) {
 				Debug.Log("you can not do this inside start");
 			} else {
