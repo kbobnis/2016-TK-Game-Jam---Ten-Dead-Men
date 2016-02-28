@@ -9,8 +9,8 @@ public class PlaySingleSound : MonoBehaviour {
 	private float SoundStart = 0f;
 	public OneSound MySound;
 
-	public static void SpawnSound( AudioClip clip, float pan=0){
-		float volume = 1f;
+	public static void SpawnSound( AudioClip clip, float pan=0, float _volume=1f){
+		float volume = _volume;
 		if (clip != null){
 			if (!Sounds.ContainsKey(clip)) {
 				Sounds.Add(clip, new OneSound(clip, volume));
