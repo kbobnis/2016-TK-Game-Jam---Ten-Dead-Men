@@ -20,3 +20,4 @@ UnityVS*
 /out
 Ignore*
 10seconds.userprefs
+*.tmx

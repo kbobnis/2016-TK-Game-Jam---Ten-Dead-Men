@@ -7,7 +7,7 @@ public class Player : MonoBehaviour {
 	private bool InsideStart = false;
 
 	void Update() {
-		if (Input.GetKeyDown(KeyCode.Return) ) {
+		if (Input.GetAxisRaw("Submit") != 0) {
 			if (InsideStart) {
 				Debug.Log("you can not do this inside start");
 			} else {
@@ -18,7 +18,7 @@ public class Player : MonoBehaviour {
 
 	public void KillMe() {
 		Game.Me.PanelLives.ReduceLive();
-		Game.Me.CreateTileAt(transform.localPosition.x, transform.localPosition.y, new Tile(TileType.DeadMan), Game.Me.MissionContainer.transform);
+		Game.Me.CreateTileAt(transform.localPosition.x, transform.localPosition.y, new Tile(TileType.DeadMan, Rotation.Up), Game.Me.MissionContainer.transform);
 		Game.Me.SpawnPlayer();
 		PlayerManager.Me.RestartTimer();
 	}

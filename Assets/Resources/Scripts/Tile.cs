@@ -42,7 +42,7 @@ public static class TileTypeExtension
 			case 6: return new Tile(TileType.Spikes, Rotation.Right);
 			case 7: return new Tile(TileType.Spikes, Rotation.Left);
 			case 8: return new Tile(TileType.Spikes, Rotation.Down);
-			case 10: return new Tile(TileType.DeadMan);
+			case 10: return new Tile(TileType.DeadMan, Rotation.Up);
 			case 9: //we don't need man tile
 				throw new Exception("You can not set man anywhere on the level: " + i);
 			default:

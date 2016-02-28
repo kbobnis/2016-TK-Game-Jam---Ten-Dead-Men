@@ -12,9 +12,14 @@ public class IntroController : MonoBehaviour
 
     void Update()
     {
-		if(Input.anyKey)
+		if(Input.GetAxisRaw("Submit") != 0 || Input.GetAxisRaw("Restart") != 0 || Input.GetAxisRaw("Jump") != 0)
 		{
 			Application.LoadLevel("scenka");
+		}
+		else if(Input.GetAxisRaw("Cancel") != 0)
+		{
+			Application.Quit();
+			Debug.Break();
 		}
     }
 }

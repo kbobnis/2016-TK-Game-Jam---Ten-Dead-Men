@@ -25,6 +25,10 @@ public class Game : MonoBehaviour {
 		public GameObject PrefabObject;
 	}
 
+	public float SpawnerCooldown = 0.5f;
+	private bool Spawning = false;
+	private float SpawnerTimer = 0;
+
 	void Awake() {
 		Me = this;
 	}
@@ -33,6 +37,19 @@ public class Game : MonoBehaviour {
 		Missions = LoadMissions();
 
 		ShowMission(CurrentMissionIndex);
+	}
+
+	void Update() {
+		if (Input.GetAxisRaw ("Restart") != 0) {
+			ShowMission (CurrentMissionIndex);
+		}
+		if (Spawning) {
+			SpawnerTimer += Time.deltaTime;
+			if (SpawnerTimer >= SpawnerCooldown) {
+				ExecSpawnPlayer ();
+				Spawning = false;
+			}
+		}
 	}
 
 	public void Fail()
@@ -81,6 +98,12 @@ public class Game : MonoBehaviour {
 	}
 
 	public void SpawnPlayer() {
+		SpawnerTimer = 0;
+		Spawning = true;
+		PlayerPrefab.SetActive (false);
+	}
+
+	void ExecSpawnPlayer() {
 
 		PlayerPrefab.SetActive(true);
 		PlayerPrefab.name = "player";
@@ -117,13 +140,13 @@ public class Game : MonoBehaviour {
 					tileGO.transform.Rotate(0, 0, 0);
 					break;
 				case Rotation.Left:
-					tileGO.transform.Rotate(0, 90, 0);
+					tileGO.transform.Rotate(0, 0, -90);
 					break;
 				case Rotation.Right:
-					tileGO.transform.Rotate(0, -90, 0);
+					tileGO.transform.Rotate(0, 0, 90);
 					break;
 				case Rotation.Down:
-					tileGO.transform.Rotate(0, 180, 0);
+					tileGO.transform.Rotate(0, 0, 180);
 					break;
 			}
 			return tileGO;

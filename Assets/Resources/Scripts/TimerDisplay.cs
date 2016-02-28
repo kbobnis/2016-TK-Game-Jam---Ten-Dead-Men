@@ -11,6 +11,6 @@ public class TimerDisplay : MonoBehaviour {
 	}
 
 	public void Refresh(float dt) {
-		GetComponent<Text>().text = dt.ToString("n2");
+		GetComponent<Text>().text = ((int)dt).ToString();
 	}
 }
