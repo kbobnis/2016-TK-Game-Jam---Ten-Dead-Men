@@ -11,7 +11,6 @@ public class PanelLives : MonoBehaviour {
 	}
 
 	internal void ReduceLive() {
-		Debug.Log ("Reduced");
 		Lives--;
 		if (transform.childCount == 0) {
 			Game.Me.NoMoreLives();
@@ -28,6 +27,7 @@ public class PanelLives : MonoBehaviour {
 		for (int i = 0; i < Lives; i++) {
 			GameObject face = Instantiate(FacePrefab) as GameObject;
 			face.transform.SetParent(transform);
+			face.transform.position = new Vector2 (0, 0);
 		}
 	}
 }
