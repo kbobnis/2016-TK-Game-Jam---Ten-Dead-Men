@@ -25,9 +25,17 @@ public class Game : MonoBehaviour {
 		public GameObject PrefabObject;
 	}
 
+	public GameObject Message;
+	public Vector2 MessageOffset;
+	private Vector2 FinishPos;
+
 	public float SpawnerCooldown = 0.5f;
 	private bool Spawning = false;
 	private float SpawnerTimer = 0;
+
+	public float RestartingCooldown = 2f;
+	private bool Restarting = false;
+	private float RestartingTimer = 0f;
 
 	void Awake() {
 		Me = this;
@@ -40,14 +48,24 @@ public class Game : MonoBehaviour {
 	}
 
 	void Update() {
-		if (Input.GetKeyDown(KeyCode.Backspace)) {
-			ShowMission (CurrentMissionIndex);
-		}
-		if (Spawning) {
-			SpawnerTimer += Time.deltaTime;
-			if (SpawnerTimer >= SpawnerCooldown) {
-				ExecSpawnPlayer ();
+		if (!Restarting) {
+			if (Input.GetKeyDown (KeyCode.Backspace)) {
+				Restart ();
+			}
+			if (Spawning) {
+				SpawnerTimer += Time.deltaTime;
+				if (SpawnerTimer >= SpawnerCooldown) {
+					ExecSpawnPlayer ();
+					Spawning = false;
+				}
+			}
+		} else {
+			RestartingTimer += Time.deltaTime;
+			if (RestartingTimer > RestartingCooldown) {
+				Message.SetActive (false);
 				Spawning = false;
+				Restarting = false;
+				ShowMission (CurrentMissionIndex);
 			}
 		}
 	}
@@ -90,6 +108,9 @@ public class Game : MonoBehaviour {
 				GameObject go = CreateTileAt(i % mission.Width, -i / mission.Width, el, MissionContainer.transform);
 				if (el.Type == TileType.Start) {
 					StartPos = go.transform.localPosition;
+				}
+				if (el.Type == TileType.Finish /* || el.Type == TileType.FinishAlt */) {
+					FinishPos = go.transform.localPosition;
 				}
 			}
 			i++;
@@ -153,12 +174,19 @@ public class Game : MonoBehaviour {
 	}
 
 	internal void NoMoreLives() {
-		//Restarting = true;
-		LoadSceneText = "No more lives, try again.";
-		Application.LoadLevel("intro");
+		Restart ();
+		//LoadSceneText = "No more lives, try again.";
+		//Application.LoadLevel("intro");
 	}
 
 	internal void ShowNextMission() {
 		ShowMission(++CurrentMissionIndex);
+	}
+
+	internal void Restart() {
+		Restarting = true;
+		RestartingTimer = 0;
+		Message.SetActive (true);
+		Message.transform.position = FinishPos + MessageOffset;
 	}
 }
