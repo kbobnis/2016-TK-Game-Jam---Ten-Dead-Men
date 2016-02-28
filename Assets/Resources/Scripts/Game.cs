@@ -34,7 +34,7 @@ public class Game : MonoBehaviour {
 
 	public void Fail()
 	{
-		ShowMission (CurrentMissionIndex);
+		NoMoreLives();
 	}
 
 	public void ShowMission(int index) {
@@ -55,7 +55,8 @@ public class Game : MonoBehaviour {
 		MissionContainer.GetComponent<MissionComponent>().Mission = Missions[index];
 		CreateMissionTilesIn(Missions[index]);
 		
-		//PanelLives.RestoreLives();
+		PanelLives.RestoreLives();
+		PlayerManager.Me.RestartTimer(); // FIXME
 	}
 
 	private void CreateMissionTilesIn(Mission mission){

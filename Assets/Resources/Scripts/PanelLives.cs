@@ -3,10 +3,16 @@ using System.Collections;
 
 public class PanelLives : MonoBehaviour {
 
-	private int Lives = 3;
+	private int Lives = 9;	// One is already on scene
 	public GameObject FacePrefab;
 
+	void Start() {
+		
+	}
+
 	internal void ReduceLive() {
+		Debug.Log ("Reduced");
+		Lives--;
 		if (transform.childCount == 0) {
 			Game.Me.NoMoreLives();
 		} else {

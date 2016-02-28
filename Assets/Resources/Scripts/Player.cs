@@ -17,9 +17,10 @@ public class Player : MonoBehaviour {
 	}
 
 	public void KillMe() {
-		//Game.Me.PanelLives.ReduceLive();
+		Game.Me.PanelLives.ReduceLive();
 		Game.Me.CreateTileAt(transform.localPosition.x, transform.localPosition.y, new Tile(TileType.DeadMan), Game.Me.MissionContainer.transform);
 		Game.Me.SpawnPlayer();
+		PlayerManager.Me.RestartTimer();
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
@@ -34,7 +35,7 @@ public class Player : MonoBehaviour {
 		}
 		if (otherTile.Type == TileType.Finish) {
 			GetComponent<Collider2D>().enabled = false;
-			Game.Me.ShowNextMission();
+			Game.Me.ShowNextMission(); // FIXME
 		}
 		if (otherTile.Type == TileType.Start) {
 			InsideStart = true;
