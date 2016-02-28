@@ -12,8 +12,11 @@ public class PlayerManager : MonoBehaviour {
 
 	public bool Stop = false;
 
-	void Start() {
+	void Awake() {
 		Me = this;
+	}
+
+	void Start() {	
 		PlayerLifeTime = LifeTime;
 		Player = GetComponent<Player>();
 	}
@@ -34,4 +37,5 @@ public class PlayerManager : MonoBehaviour {
 	internal void Kill() {
 		Player.KillMe();
 	}
+
 }

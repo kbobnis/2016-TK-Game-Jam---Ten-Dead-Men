@@ -25,8 +25,11 @@ public class Game : MonoBehaviour {
 		public GameObject PrefabObject;
 	}
 
-	void Start () {
+	void Awake() {
 		Me = this;
+	}
+
+	void Start () {
 		Missions = LoadMissions();
 
 		ShowMission(CurrentMissionIndex);
@@ -39,9 +42,10 @@ public class Game : MonoBehaviour {
 
 	public void ShowMission(int index) {
 
-		if (index >= Missions.Count ) {
+		if (index >= Missions.Count || index < 0) {
 			LoadSceneText = "Game Finished, congratulations!";
 			Application.LoadLevel("intro");
+			return;
 		}
 
 		//destroy all previous dirts
@@ -56,7 +60,7 @@ public class Game : MonoBehaviour {
 		CreateMissionTilesIn(Missions[index]);
 		
 		PanelLives.RestoreLives();
-		PlayerManager.Me.RestartTimer(); // FIXME
+		PlayerManager.Me.RestartTimer();
 	}
 
 	private void CreateMissionTilesIn(Mission mission){

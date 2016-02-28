@@ -38,7 +38,7 @@ namespace PC2D
                                  _motor.motorState == PlatformerMotor2D.MotorState.FallingFast))
             {
                 _isJumping = true;
-				Debug.Log ("Setting state to Jump");
+
                 _animator.Play("Jump");
 
                 if (_motor.velocity.x <= -0.1f)

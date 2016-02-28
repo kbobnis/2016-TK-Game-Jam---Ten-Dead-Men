@@ -35,7 +35,7 @@ public class Player : MonoBehaviour {
 		}
 		if (otherTile.Type == TileType.Finish) {
 			GetComponent<Collider2D>().enabled = false;
-			Game.Me.ShowNextMission(); // FIXME
+			Game.Me.ShowNextMission();
 		}
 		if (otherTile.Type == TileType.Start) {
 			InsideStart = true;
