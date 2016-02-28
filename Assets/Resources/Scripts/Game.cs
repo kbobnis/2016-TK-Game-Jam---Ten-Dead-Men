@@ -32,6 +32,12 @@ public class Game : MonoBehaviour {
 		ShowMission(CurrentMissionIndex);
 	}
 
+	public void Fail()
+	{
+		PrepareMission ();
+		ShowMission (CurrentMissionIndex);
+	}
+
 	public void ShowMission(int index) {
 
 		if (index >= Missions.Count ) {
@@ -51,6 +57,11 @@ public class Game : MonoBehaviour {
 		CreateMissionTilesIn(Missions[index]);
 		
 		//PanelLives.RestoreLives();
+	}
+
+	public void PrepareMission()
+	{
+		MissionContainer.GetComponent<MissionComponent> ().Reset ();
 	}
 	
 	private void CreateMissionTilesIn(Mission mission){
