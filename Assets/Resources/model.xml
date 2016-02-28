@@ -1,8 +1,14 @@
 <root>
 	<mission path="maps/tutorial1" />
-	<mission path="maps/9" />
+	<mission path="maps/tutorial2" />
+	<mission path="maps/6" />
 	<mission path="maps/3" />
+	<mission path="maps/9" />
 	<mission path="maps/level4" />
-	<mission path="maps/level5" />	
+	<mission path="maps/5" />
+	<mission path="maps/7" />
+	<mission path="maps/8" />
+	<mission path="maps/10" />
+
 	
 </root>
