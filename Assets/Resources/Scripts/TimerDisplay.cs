@@ -15,6 +15,6 @@ public class TimerDisplay : MonoBehaviour {
 
 	public void Refresh(float dt) {
 		GetComponent<Text>().text = ((int)dt).ToString();
-		GetComponent<Text> ().fontSize = (int) (20f + (10f - dt) * 4);
+		GetComponent<Text> ().fontSize = (int) (20f + (10f - (int)dt) * 4);
 	}
 }
