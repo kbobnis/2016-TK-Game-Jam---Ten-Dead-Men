@@ -45,6 +45,7 @@ public class Game : MonoBehaviour {
 		Missions = LoadMissions();
 
 		ShowMission(CurrentMissionIndex);
+		Camera.main.gameObject.AddComponent<CameraShake>();
 	}
 
 	void Update() {

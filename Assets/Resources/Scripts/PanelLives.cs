@@ -36,7 +36,7 @@ public class PanelLives : MonoBehaviour {
 					break;
 				}
 			}
-			
+			Camera.main.gameObject.GetComponent<CameraShake>().Shake();
 		}
 	}
 
