@@ -19,6 +19,10 @@ public class PlayerManager : MonoBehaviour {
 	void Start() {	
 		PlayerLifeTime = LifeTime;
 		Player = GetComponent<Player>();
+
+		foreach (SpriteRenderer child in gameObject.GetComponentsInChildren<SpriteRenderer>()) {
+			child.sortingOrder = 5;
+		}
 	}
 
 	void Update() {
