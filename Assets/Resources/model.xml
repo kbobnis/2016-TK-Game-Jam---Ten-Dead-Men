@@ -1,4 +1,5 @@
 <root>
+	
 	<mission path="maps/tutorial1" />
 	<mission path="maps/tutorial2" />
 	<mission path="maps/6" />
@@ -9,6 +10,9 @@
 	<mission path="maps/7" />
 	<mission path="maps/8" />
 	<mission path="maps/10" />
+	<mission path="maps/11" />
+	<mission path="maps/12" />
+	<mission path="maps/13" />
 	
 
 
