@@ -51,6 +51,8 @@ public class Game : MonoBehaviour {
 		if (!Restarting) {
 			if (Input.GetKeyDown (KeyCode.Backspace)) {
 				Restart ();
+				PlayerPrefab.SetActive (false);
+				return;
 			}
 			if (Spawning) {
 				SpawnerTimer += Time.deltaTime;
