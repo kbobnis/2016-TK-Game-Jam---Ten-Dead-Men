@@ -2,15 +2,12 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/Scripts/Player.cs">
     <Files>
-      <File FileName="Assets/Resources/Scripts/Game.cs" Line="137" Column="1" />
-      <File FileName="Assets/Resources/Scripts/Player.cs" Line="33" Column="13" />
+      <File FileName="Assets/Resources/Scripts/Game.cs" Line="1" Column="1" />
+      <File FileName="Assets/Resources/Scripts/Player.cs" Line="1" Column="1" />
       <File FileName="Assets/Resources/Scripts/PanelLives.cs" Line="1" Column="1" />
       <File FileName="Assets/Resources/Scripts/Tile.cs" Line="1" Column="1" />
       <File FileName="Assets/Resources/Scripts/Mission.cs" Line="1" Column="1" />
       <File FileName="Assets/Resources/Scripts/IntroController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Resources/Scripts/PlayerManager.cs" Line="18" Column="1" />
-      <File FileName="Assets/Resources/Scripts/TimerDisplay.cs" Line="9" Column="12" />
-      <File FileName="Assets/Resources/Scripts/DeadBodySpawnControl.cs" Line="11" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
