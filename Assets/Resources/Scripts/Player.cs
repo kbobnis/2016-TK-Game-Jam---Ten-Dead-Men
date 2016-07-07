@@ -10,7 +10,8 @@ public class Player : MonoBehaviour {
 	public GameObject SkullPrefab;
 
 	void Update() {
-		if (Input.GetKeyDown(KeyCode.P)) {
+		//if (Input.GetKeyDown(KeyCode.P)) {
+		if(Input.GetAxis("die") != 0) {
 			if (InsideStart) {
 				Debug.Log("you can not do this inside start");
 			} else {

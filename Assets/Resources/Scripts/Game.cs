@@ -52,7 +52,8 @@ public class Game : MonoBehaviour {
 
 	void Update() {
 		if (!Restarting) {
-			if (Input.GetKeyDown (KeyCode.Backspace)) {
+			//if (Input.GetKeyDown (KeyCode.Backspace)) {
+			if(Input.GetAxis("restart") != 0) {
 				Restart ();
 				PlayerPrefab.SetActive (false);
 				return;
