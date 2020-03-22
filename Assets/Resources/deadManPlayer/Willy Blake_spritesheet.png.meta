@@ -1,71 +1,125 @@
 fileFormatVersion: 2
 guid: 8c5100fbbcc632042a25375a37959c6e
-timeCreated: 1456614097
-licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Willy Blake_spritesheet_1
-    21300002: Willy Blake_spritesheet_2
-    21300004: Willy Blake_spritesheet_3
-    21300006: Willy Blake_spritesheet_4
-    21300008: Willy Blake_spritesheet_6
-    21300010: Willy Blake_spritesheet_7
-    21300012: Willy Blake_spritesheet_8
-    21300014: Willy Blake_spritesheet_9
-    21300016: Willy Blake_spritesheet_10
-    21300018: Willy Blake_spritesheet_11
-    21300020: Willy Blake_spritesheet_12
-    21300022: Willy Blake_spritesheet_13
-    21300024: Willy Blake_spritesheet_14
-    21300026: Willy Blake_spritesheet_15
-    21300028: Willy Blake_spritesheet_16
-  serializedVersion: 2
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Willy Blake_spritesheet_1
+  - first:
+      213: 21300002
+    second: Willy Blake_spritesheet_2
+  - first:
+      213: 21300004
+    second: Willy Blake_spritesheet_3
+  - first:
+      213: 21300006
+    second: Willy Blake_spritesheet_4
+  - first:
+      213: 21300008
+    second: Willy Blake_spritesheet_6
+  - first:
+      213: 21300010
+    second: Willy Blake_spritesheet_7
+  - first:
+      213: 21300012
+    second: Willy Blake_spritesheet_8
+  - first:
+      213: 21300014
+    second: Willy Blake_spritesheet_9
+  - first:
+      213: 21300016
+    second: Willy Blake_spritesheet_10
+  - first:
+      213: 21300018
+    second: Willy Blake_spritesheet_11
+  - first:
+      213: 21300020
+    second: Willy Blake_spritesheet_12
+  - first:
+      213: 21300022
+    second: Willy Blake_spritesheet_13
+  - first:
+      213: 21300024
+    second: Willy Blake_spritesheet_14
+  - first:
+      213: 21300026
+    second: Willy Blake_spritesheet_15
+  - first:
+      213: 21300028
+    second: Willy Blake_spritesheet_16
+  externalObjects: {}
+  serializedVersion: 10
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
+    sRGBTexture: 1
     linearTexture: 0
-    correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
-  generateCubemap: 0
+  generateCubemap: 6
   cubemapConvolution: 0
-  cubemapConvolutionSteps: 8
-  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
+    serializedVersion: 2
     filterMode: -1
     aniso: 16
-    mipBias: -1
-    wrapMode: 1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
-  rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: Willy Blake_spritesheet_1
+    - serializedVersion: 2
+      name: Willy Blake_spritesheet_1
       rect:
         serializedVersion: 2
         x: 134
@@ -73,9 +127,20 @@ TextureImporter:
         width: 59
         height: 65
       alignment: 9
-      pivot: {x: .734358966, y: .781101644}
+      pivot: {x: 0.73435897, y: 0.78110164}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Willy Blake_spritesheet_2
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02305410000000000800000000000000
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Willy Blake_spritesheet_2
       rect:
         serializedVersion: 2
         x: 26
@@ -83,9 +148,20 @@ TextureImporter:
         width: 23
         height: 17
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Willy Blake_spritesheet_3
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22305410000000000800000000000000
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Willy Blake_spritesheet_3
       rect:
         serializedVersion: 2
         x: 212
@@ -93,9 +169,20 @@ TextureImporter:
         width: 36
         height: 54
       alignment: 9
-      pivot: {x: .280520976, y: .774348199}
+      pivot: {x: 0.28052098, y: 0.7743482}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Willy Blake_spritesheet_4
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42305410000000000800000000000000
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Willy Blake_spritesheet_4
       rect:
         serializedVersion: 2
         x: 12
@@ -103,9 +190,20 @@ TextureImporter:
         width: 108
         height: 64
       alignment: 9
-      pivot: {x: .50000006, y: .137345552}
+      pivot: {x: 0.50000006, y: 0.13734555}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Willy Blake_spritesheet_6
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62305410000000000800000000000000
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Willy Blake_spritesheet_6
       rect:
         serializedVersion: 2
         x: 20
@@ -113,9 +211,20 @@ TextureImporter:
         width: 16
         height: 20
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Willy Blake_spritesheet_7
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82305410000000000800000000000000
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Willy Blake_spritesheet_7
       rect:
         serializedVersion: 2
         x: 47
@@ -123,9 +232,20 @@ TextureImporter:
         width: 11
         height: 18
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Willy Blake_spritesheet_8
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2305410000000000800000000000000
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Willy Blake_spritesheet_8
       rect:
         serializedVersion: 2
         x: 144
@@ -133,9 +253,20 @@ TextureImporter:
         width: 36
         height: 59
       alignment: 9
-      pivot: {x: .623456299, y: .675769091}
+      pivot: {x: 0.6234563, y: 0.6757691}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Willy Blake_spritesheet_9
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2305410000000000800000000000000
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Willy Blake_spritesheet_9
       rect:
         serializedVersion: 2
         x: 217
@@ -143,9 +274,20 @@ TextureImporter:
         width: 32
         height: 55
       alignment: 9
-      pivot: {x: .638888836, y: .625701368}
+      pivot: {x: 0.63888884, y: 0.62570137}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Willy Blake_spritesheet_10
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2305410000000000800000000000000
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Willy Blake_spritesheet_10
       rect:
         serializedVersion: 2
         x: 15
@@ -153,9 +295,20 @@ TextureImporter:
         width: 29
         height: 22
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Willy Blake_spritesheet_11
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03305410000000000800000000000000
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Willy Blake_spritesheet_11
       rect:
         serializedVersion: 2
         x: 52
@@ -163,9 +316,20 @@ TextureImporter:
         width: 16
         height: 19
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Willy Blake_spritesheet_12
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23305410000000000800000000000000
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Willy Blake_spritesheet_12
       rect:
         serializedVersion: 2
         x: 95
@@ -173,9 +337,20 @@ TextureImporter:
         width: 23
         height: 24
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Willy Blake_spritesheet_13
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43305410000000000800000000000000
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Willy Blake_spritesheet_13
       rect:
         serializedVersion: 2
         x: 120
@@ -183,9 +358,20 @@ TextureImporter:
         width: 25
         height: 25
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Willy Blake_spritesheet_14
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63305410000000000800000000000000
+      internalID: 21300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Willy Blake_spritesheet_14
       rect:
         serializedVersion: 2
         x: 10
@@ -193,9 +379,20 @@ TextureImporter:
         width: 78
         height: 84
       alignment: 9
-      pivot: {x: .664609194, y: .0943564028}
+      pivot: {x: 0.6646092, y: 0.0943564}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Willy Blake_spritesheet_15
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83305410000000000800000000000000
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Willy Blake_spritesheet_15
       rect:
         serializedVersion: 2
         x: 100
@@ -203,9 +400,20 @@ TextureImporter:
         width: 80
         height: 77
       alignment: 9
-      pivot: {x: .759259224, y: .487173259}
+      pivot: {x: 0.7592592, y: 0.48717326}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Willy Blake_spritesheet_16
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3305410000000000800000000000000
+      internalID: 21300026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Willy Blake_spritesheet_16
       rect:
         serializedVersion: 2
         x: 188
@@ -213,9 +421,31 @@ TextureImporter:
         width: 65
         height: 73
       alignment: 9
-      pivot: {x: .530389428, y: .242939234}
+      pivot: {x: 0.5303894, y: 0.24293923}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3305410000000000800000000000000
+      internalID: 21300028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
